@@ -121,7 +121,7 @@ nmse_cellfree_est3 = data_cellfree_est3["nmse"]
 # Plot
 ########################################
 
-fig, ax = plt.subplots(figsize=(3.15, 2))
+fig, ax = plt.subplots(figsize=(3.15, 1.5))
 
 width = 0.2
 error_kw = dict(lw=1, capsize=1, capthick=1)
@@ -141,7 +141,7 @@ ax.set_ylabel("${\mathrm{NMSE}}$")
 
 ax.set_xticks(collisions)
 
-ax.legend()
+ax.legend(fontsize='xx-small')
 
 plt.show()
 
