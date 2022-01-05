@@ -86,7 +86,13 @@ tcp_cellfree_est3_practical = data_cellfree_est3_practical["tcp"]
 
 # Pre-processing
 list_K0values = K0values.tolist()
-marker_mask = [list_K0values.index(100), list_K0values.index(1000), list_K0values.index(10000), -1]
+
+#marker_mask = [list_K0values.index(100), list_K0values.index(1000), list_K0values.index(10000), -1]
+
+marker_mask_lower = np.arange(K0values.size)[np.where(np.arange(K0values.size) % 2)]
+
+marker_mask_practical = set(np.arange(K0values.size)) - set.intersection(set(np.arange(K0values.size)), set(marker_mask_lower))
+marker_mask_practical = list(marker_mask_practical)
 
 
 # Fig. 07d
@@ -108,19 +114,19 @@ ax.plot(K0values, tcp_cellfree_est3_practical, linewidth=1.5, linestyle=':')
 
 plt.gca().set_prop_cycle(None)
 
-ax.plot(K0values[marker_mask], tcp_cellfree_est1_lower[marker_mask], linewidth=0, markersize='7', marker='v', color='black', label='Lower')
+ax.plot(K0values[marker_mask_lower], tcp_cellfree_est1_lower[marker_mask_lower], linewidth=0, markersize='9', marker='1', fillstyle='left', markevery=5, color='black', label='Lower')
 
-ax.plot(K0values[marker_mask], tcp_cellfree_est1_lower[marker_mask], linewidth=0, markersize='7', marker='v')
-ax.plot(K0values[marker_mask], tcp_cellfree_est2_lower[marker_mask], linewidth=0, markersize='7', marker='v')
-ax.plot(K0values[marker_mask], tcp_cellfree_est3_lower[marker_mask], linewidth=0, markersize='7', marker='v')
+ax.plot(K0values[marker_mask_lower], tcp_cellfree_est1_lower[marker_mask_lower], linewidth=0, markersize='9', marker='1', fillstyle='left', markevery=5)
+ax.plot(K0values[marker_mask_lower], tcp_cellfree_est2_lower[marker_mask_lower], linewidth=0, markersize='9', marker='1', fillstyle='left', markevery=5)
+ax.plot(K0values[marker_mask_lower], tcp_cellfree_est3_lower[marker_mask_lower], linewidth=0, markersize='9', marker='1', fillstyle='left', markevery=5)
 
 plt.gca().set_prop_cycle(None)
 
-ax.plot(K0values[marker_mask], tcp_cellfree_est1_practical[marker_mask], linewidth=0, markersize='7', marker='x', color='black', label='Practical')
+ax.plot(K0values[marker_mask_practical], tcp_cellfree_est1_practical[marker_mask_practical], linewidth=0, markersize='9', marker='+', fillstyle='right', markevery=5, color='black', label='Practical')
 
-ax.plot(K0values[marker_mask], tcp_cellfree_est1_practical[marker_mask], linewidth=0, markersize='7', marker='x')
-ax.plot(K0values[marker_mask], tcp_cellfree_est2_practical[marker_mask], linewidth=0, markersize='7', marker='x')
-ax.plot(K0values[marker_mask], tcp_cellfree_est3_practical[marker_mask], linewidth=0, markersize='7', marker='x')
+ax.plot(K0values[marker_mask_practical], tcp_cellfree_est1_practical[marker_mask_practical], linewidth=0, markersize='9', marker='+', fillstyle='right', markevery=5)
+ax.plot(K0values[marker_mask_practical], tcp_cellfree_est2_practical[marker_mask_practical], linewidth=0, markersize='9', marker='+', fillstyle='right', markevery=5)
+ax.plot(K0values[marker_mask_practical], tcp_cellfree_est3_practical[marker_mask_practical], linewidth=0, markersize='9', marker='+', fillstyle='right', markevery=5)
 
 ax.set_xscale('log', base=10)
 ax.set_yscale('log', base=10)
@@ -130,11 +136,11 @@ ax.set_ylabel('TCP [mW]')
 
 ax.grid(visible=True, alpha=0.5)
 
-ax.text(4500, 15, "CF-SUCRe Est. 1 and Est. 2\n curves are coinciding", fontsize='x-small')
+ax.text(9e3, 15, "CF-SUCRe Est. 1 and Est. 2\n curves are coinciding", fontsize='x-small')
 
 ax.set_ylim([9.998101209448855, 89548.48326256676])
 
-ax.fill_between(K0values, np.zeros(K0values.size), tcp_bcf, alpha=0.25, color="#926AA6", label="fitting EE region")
+ax.fill_between(K0values, np.zeros(K0values.size), tcp_bcf, alpha=0.25, color="#661D98", label="fitting EE region")
 
 ax.legend(fontsize='x-small')
 

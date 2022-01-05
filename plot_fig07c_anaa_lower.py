@@ -85,10 +85,10 @@ anaa_cellfree_est3_flexible = data_cellfree_est3_flexible["anaa"]
 ########################################
 
 # Pre-processing
-list_K0values = K0values.tolist()
+marker_mask_fixed = np.arange(K0values.size)[np.where(np.arange(K0values.size) % 2)]
 
-marker_mask_fixed = [list_K0values.index(1000), list_K0values.index(10000), list_K0values.index(30000), -1]
-marker_mask_flexible = [list_K0values.index(5000), list_K0values.index(20000), list_K0values.index(40000), -1]
+marker_mask_flexible = set(np.arange(K0values.size)) - set.intersection(set(np.arange(K0values.size)), set(marker_mask_fixed))
+marker_mask_flexible = list(marker_mask_flexible)
 
 # Fig. 07c
 fig, ax = plt.subplots(figsize=(4/3 * 3.15, 2))
@@ -108,19 +108,19 @@ ax.plot(K0values, anaa_cellfree_est3_flexible, linewidth=1.5, linestyle=':')
 
 plt.gca().set_prop_cycle(None)
 
-ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est1_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='full', color='black', label='Fixed')
+ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est1_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='none', markevery=5, color='black', label='Fixed')
 
-ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est1_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='full')
-ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est2_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='full')
-ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est3_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='full')
+ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est1_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='none', markevery=5)
+ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est2_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='none', markevery=5)
+ax.plot(K0values[marker_mask_fixed], anaa_cellfree_est3_fixed[marker_mask_fixed], linewidth=0, marker='d', markersize=7, fillstyle='none', markevery=5)
 
 plt.gca().set_prop_cycle(None)
 
-ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est1_flexible[marker_mask_flexible], linewidth=0, marker='*', markersize=7, fillstyle='full', color='black', label='Greedy flexible')
+ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est1_flexible[marker_mask_flexible], linewidth=0, marker='x', markersize=7, fillstyle='none', markevery=5, color='black', label='Greedy flexible')
 
-ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est1_flexible[marker_mask_flexible], linewidth=0, marker='*', markersize=7, fillstyle='full')
-ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est2_flexible[marker_mask_flexible], linewidth=0, marker='*', markersize=7, fillstyle='full')
-ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est3_flexible[marker_mask_flexible], linewidth=0, marker='*', markersize=7, fillstyle='full')
+ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est1_flexible[marker_mask_flexible], linewidth=0, marker='x', markersize=7, fillstyle='none', markevery=5)
+ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est2_flexible[marker_mask_flexible], linewidth=0, marker='x', markersize=7, fillstyle='none', markevery=5)
+ax.plot(K0values[marker_mask_flexible], anaa_cellfree_est3_flexible[marker_mask_flexible], linewidth=0, marker='x', markersize=7, fillstyle='none', markevery=5)
 
 ax.set_xscale('log', base=10)
 

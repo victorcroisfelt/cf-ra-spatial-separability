@@ -163,33 +163,9 @@ for ll, L in enumerate(Lrange):
         # Compute and store number of exclusive pilot-serving APs
         rhoAdom_k[ll, ss] = (L/ell**2) * Adom_k
 
-# Get special indexes
-special_index = np.empty(Lrange.size)
-special_index[:] = np.nan
-
-# Go through all values of L
-for ll, L in enumerate(Lrange):
-
-    try: 
-        # Treat negative values
-        index = np.where(Psi_k[ll, :] < 0.0)[0][0]
-        Psi_k[ll, index:] = np.nan
-        rhoAdom_k[ll, index:] = np.nan
-    except:
-        pass
-
-    index = 0
-
-    while True:
-
-        if index == (len(K0values) - 1):
-            break
-
-        if Psi_k[ll, index + 1] > Psi_k[ll, index]:
-            special_index[ll] = index
-            break 
-
-        index += 1
+# Treat negative values
+Psi_k[Psi_k < 0.0] = np.nan
+rhoAdom_k[rhoAdom_k < 0.0] = np.nan
 
 ########################################
 # Plot

@@ -45,17 +45,17 @@ from settings_fig07_08 import *
 ########################################
 
 # Choose estimator
-estimator = 'est1'
+#estimator = 'est1'
 estimator = 'est2'
-estimator = 'est3'
+#estimator = 'est3'
 
 # Choose method of selection of number of nearby APs (Section V.E-1))
-#method = 'fixed'
-method = 'flexible'
+method = 'fixed'
+#method = 'flexible'
 
 # Choose bound
-bound = 'lower'
-#bound = 'practical' 
+#bound = 'lower'
+bound = 'practical' 
 
 ########################################
 # Lookup tables
