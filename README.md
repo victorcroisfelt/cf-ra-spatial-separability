@@ -1,6 +1,10 @@
 # User-Centric Perspective in Random Access Cell-Free Aided by Spatial Separability
 This is a research-oriented code package that is primarily intended to allow readers to replicate the results of the article mentioned below and also encourage and accelerate further research on this topic:
 
+V. Croisfelt, T. Abrão and J. C. Marinello, ["User-Centric Perspective in Random Access Cell-Free Aided by Spatial Separability,"](https://ieeexplore.ieee.org/document/9712617) in IEEE Internet of Things Journal, vol. 9, no. 17, pp. 16562-16576, 1 Sept.1, 2022, doi: 10.1109/JIOT.2022.3151050.
+
+A pre-print version is available on:
+
 V. Croisfelt, T. Abrão, and J. C., Marinello, “User-Centric Perspective in Random Access Cell-Free Aided by Spatial Separability,” to be published. Available on: https://arxiv.org/abs/2107.10294.
 
 I hope this content helps in your research and contributes to building the precepts behind open science. Remarkably, in order to boost the idea of open science and further drive the evolution of science, I also motivate you to share your published results to the public.
