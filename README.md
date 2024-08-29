@@ -30,4 +30,17 @@ Emil Björnson, Elisabeth de Carvalho, Jesper H. Sørensen, Erik G. Larsson, Pet
 The authors provide a code package on: https://github.com/emilbjornson/sucre-protocol.
 
 ## Citing this Repository and License
-This code is subject to the MIT license. If you use any part of this repository for research, please consider to cite our aforementioned work.
+This code is subject to the MIT license. If you use any part of this repository for research, please consider citing our aforementioned work.
+
+```bibtex
+@ARTICLE{9712617,
+  author={Croisfelt, Victor and Abrão, Taufik and Marinello, José Carlos},
+  journal={IEEE Internet of Things Journal}, 
+  title={User-Centric Perspective in Random Access Cell-Free Aided by Spatial Separability}, 
+  year={2022},
+  volume={9},
+  number={17},
+  pages={16562-16576},
+  keywords={Protocols;Spatial resolution;Internet of Things;Energy resolution;Signal resolution;Electrical engineering;Ultra reliable low latency communication;6G systems;cell free (CF);grant-based protocols;massive MIMO;random access (RA);spatial separability;user centric},
+  doi={10.1109/JIOT.2022.3151050}
+}
